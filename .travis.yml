@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t claudiney-id/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run claudiney-id/docker-react yarn test --coverage
